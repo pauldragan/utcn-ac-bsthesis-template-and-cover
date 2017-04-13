@@ -3,6 +3,7 @@
 This repository contains the LaTeX implementation of the UTC-N AC Bachelor thesis template and cover pages. The compiler used is XeLaTeX. For Windows, replace the fonts in *thesis.cls* and *thesiscover.cls* with Cambria, instead of Caladea, and Calibri, instead of Carlitto.
 
 *thesis.cls* contains commands and configuration regarding the Thesis template.
+
 *thesiscover.cls* contains commands and configuration for the cover pages
 
 # Usage
@@ -14,6 +15,7 @@ Fill-in the fields (replace the dummy-text) then compile.
 ## Thesis
 
 Available commands: 
+
      1. sectioning
           * \section (counted)
           * \subsection (counted)
