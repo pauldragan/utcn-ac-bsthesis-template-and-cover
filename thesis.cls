@@ -62,6 +62,9 @@
 \RequirePackage{environ}
 \RequirePackage{threeparttable}
 \RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\usepackage[backend=bibtex8, style=ieee, citestyle=ieee]{biblatex}
+
 
 
 %-------------------------------------------------------------------------------
@@ -71,6 +74,9 @@
 % Configure page margins with geometry
 %\geometry{left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm, footskip=1.27cm}
 \geometry{left=2.5cm, headsep=1.17cm, top=2.5cm, right=2.5cm, footskip=1.17cm, textheight=24.7cm}
+
+% Bibliography
+\patchcmd{\thebibliography}{\section*}{\section}{}{}
 
 
 %-------------------------------------------------------------------------------
