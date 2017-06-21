@@ -1,6 +1,6 @@
 \documentclass{thesis}
 
-\defaultfont
+% \defaultfont
 
 \addbibresource{sample}
 
@@ -18,6 +18,25 @@ Donec sem ex, luctus sed purus eu, volutpat luctus ex. Vivamus tempor risus ultr
 
 \subsection{Chapter headline 2}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egestas, tellus id placerat ultricies, lorem dui euismod purus, sed aliquet libero magna id dui. Vestibulum facilisis nisi sed arcu congue, eget consectetur elit luctus. Fusce pretium id dui eget suscipit. Duis in sagittis orci. Cras consequat rhoncus tellus, ac porta velit varius quis. Praesent arcu felis, porta vitae fermentum vel, molestie eu enim. Curabitur varius felis eget orci fermentum efficitur. In rutrum felis vitae odio blandit aliquam. Suspendisse venenatis purus sit amet enim finibus, at viverra felis pulvinar. Aenean sit amet ex malesuada risus porta tincidunt. Suspendisse et venenatis nisl, vitae ornare mauris. Maecenas dictum at ipsum nec auctor. Donec accumsan mattis orci. 
+
+\begin{thesisalgorithm}[t]{Convolution algorithm for a CNN layer}{comput_cost}
+
+	\For{$o$ in $output \; feature \; maps$}
+		\For{$i$ in $input \; feature \; maps$}
+			\For{$r_i$ in $input \; feature \; map$}
+				\For{$c_i$ in $input \; feature \; map$}
+					\For{$r_k$ in $kernel$}
+						\For{$c_k$ in $kernel$} 
+							\State
+							$Y[o][r_i][c_i] += W[o][i][r_k][c_k] \cdot X[i][r_i+r_k][c_i+c_k]-$
+						\EndFor
+					\EndFor
+				\EndFor
+			\EndFor
+		\EndFor
+	\EndFor
+
+\end{thesisalgorithm}
 
 Donec sem ex, luctus sed purus eu, volutpat luctus ex. Vivamus tempor risus ultrices magna vulputate, a iaculis mi accumsan. Vestibulum vulputate condimentum urna vel pretium. Praesent pellentesque mi ac metus convallis, id dignissim nibh feugiat. Donec viverra nec dui eu molestie. Donec accumsan libero nec massa vestibulum, ut semper urna ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer posuere eros hendrerit quam finibus lobortis. Proin sollicitudin vitae risus quis malesuada. Curabitur convallis turpis id dui gravida efficitur. Morbi placerat, est finibus vehicula finibus, urna leo molestie enim, quis ornare magna massa ut lacus. Phasellus fringilla fringilla enim et consequat.
 
