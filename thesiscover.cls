@@ -31,6 +31,7 @@
   \RequirePackage[quiet]{fontspec}
   % To support LaTeX quoting style
   \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Caladea}
 \else
   \RequirePackage[T1]{fontenc}
   % Replace by the encoding you are using

@@ -26,11 +26,19 @@
 \RequirePackage{etoolbox}
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
+
+\RequirePackage{mathtools}
+\RequirePackage{amsmath}
+
 % Needed to manage fonts
 \ifxetex
-  \RequirePackage[quiet]{fontspec}
+  % \RequirePackage[quiet]{fontspec}
+  % \RequirePackage[no-math]{fontspec}
+  \RequirePackage{fontspec}
   % To support LaTeX quoting style
   \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Caladea}
+  % \setmathfont{Latin Modern Math}
 \else
   \RequirePackage[T1]{fontenc}
   % Replace by the encoding you are using
@@ -38,9 +46,10 @@
 \fi
 % Needed to manage math fonts
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+% \RequirePackage{mathspec}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
-\RequirePackage{fontawesome}
+% \RequirePackage{fontawesome}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
@@ -56,14 +65,19 @@
 \RequirePackage{graphicx}
 \RequirePackage{chngcntr}
 \RequirePackage{caption}
-\RequirePackage{mathtools}
 \RequirePackage{tabularx}
 \RequirePackage{tabulary}
 \RequirePackage{environ}
 \RequirePackage{threeparttable}
 \RequirePackage{enumitem}
-\RequirePackage{etoolbox}
-\usepackage[backend=bibtex8, style=ieee, citestyle=ieee]{biblatex}
+% \RequirePackage{etoolbox}
+\RequirePackage{algorithm}
+\RequirePackage{algorithmicx}
+\RequirePackage{algpseudocode}
+\RequirePackage[section]{placeins}
+\RequirePackage[backend=bibtex8, style=ieee, citestyle=ieee]{biblatex}
+% \RequirePackage[english]{babel}
+%\RequirePackage{underscore}
 
 
 
@@ -186,12 +200,12 @@
 %	\end{figure}
 %	}
 
-\NewEnviron{thesisfigure}[2]{
-	\begin{figure}
+\NewEnviron{thesisfigure}[3][h]{
+	\begin{figure}[#1]
 		\centering
-		\label{fig:#2}
 		\BODY
-		\caption{#1}
+		\caption{#2}
+		\label{fig:#3}
 	\end{figure}
 }
 	
@@ -208,17 +222,32 @@
 }
 
 %-------------------------------------------------------------------------------
+%                Configuring algorithms
+%-------------------------------------------------------------------------------
+\counterwithin{algorithm}{section}
+
+\NewEnviron{thesisalgorithm}[3][h]{
+	\begin{algorithm}[#1]
+		\caption{#2}
+		\begin{algorithmic}[1]
+			\BODY
+		\end{algorithmic}
+		\label{alg:#3}
+	\end{algorithm}
+}
+
+%-------------------------------------------------------------------------------
 %                Configuring tables
 %-------------------------------------------------------------------------------
 \counterwithin{table}{section}
 \captionsetup[table]{justification=raggedright,singlelinecheck=off}
-\NewEnviron{thesistable}[4]{
-	\begin{table}
+\NewEnviron{thesistable}[5][h]{
+	\begin{table}[#1]
 	\centering
 	\begin{threeparttable}
-	\caption{#3}
-	\label{tab:#4}
-	\begin{tabularx}{#1\linewidth}{#2}
+	\caption{#4}
+	\label{tab:#5}
+	\begin{tabularx}{#2\linewidth}{#3}
 		\BODY
 	\end{tabularx}
 	\end{threeparttable}
