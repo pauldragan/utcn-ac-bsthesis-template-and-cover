@@ -31,7 +31,9 @@
   \RequirePackage[quiet]{fontspec}
   % To support LaTeX quoting style
   \defaultfontfeatures{Ligatures=TeX}
-  \setmainfont{Caladea}
+  % \setmainfont{Caladea}
+  % \newfontfamily\liberation{Liberation Serif}
+  % \DeclareTextFontCommand{\textlib}{\liberation}
 \else
   \RequirePackage[T1]{fontenc}
   % Replace by the encoding you are using
@@ -89,7 +91,7 @@
 \definecolor{gray}{HTML}{5D5D5D}
 \definecolor{lightgray}{HTML}{999999}
 
-\newcommand*{\titlestyle}[1]{{\fontsize{24pt}{1em}\scshape\titlefont\selectfont #1 \par}}
+\newcommand*{\titlestyle}[1]{{\fontsize{24pt}{24pt}\scshape\titlefont\selectfont #1 \par}}
 \newcommand*{\headerstyle}[1]{{\fontsize{10pt}{1em}\bfseries\headerfont\selectfont #1 \par}}
 \newcommand*{\footerstyle}[1]{{\fontsize{24pt}{1em}\bfseries\defaultfont\selectfont #1 \par}}
 \newcommand*{\defaultstyle}[1]{{\fontsize{12pt}{1em}\defaultfont\selectfont #1 \par}}
@@ -164,9 +166,9 @@
 \vfill
 \hspace{5.9cm}
 \begin{minipage}{\textwidth}
-Author: \textbf{\@fname \space \uppercase{\@lname}}  \\
+Author: \textbf{\@fname \space \MakeUppercase{\@lname}}  \\
 \bigbreak
-Scientific supervisor: \textbf{\@sutitle \space \@sufname \space \uppercase{\@sulname}} 
+Scientific supervisor: \textbf{\@sutitle \space \@sufname \space \MakeUppercase{\@sulname}} 
 \vspace{60pt}
 
 \end{minipage}
@@ -190,7 +192,7 @@ Scientific supervisor: \textbf{\@sutitle \space \@sufname \space \uppercase{\@su
 \vspace{36pt}
 
 \begin{center}
-Author: \textbf{\@fname \space \uppercase{\@lname}}
+Author: \textbf{\@fname \space \MakeUppercase{\@lname}}
 \bigbreak
 \bigbreak
 \textbf{\bigstyle{\@thtitle}}
@@ -244,7 +246,7 @@ Scientific supervisor signature \underline{\hspace{8cm}}
 
 \bigbreak
 
-\hspace{5ex} I, the undersigned, \textbf{\@fname \space \uppercase{\@lname}}, identified by the CI/BI with series \@idseries, number \@idnumber, CNP \@cnp, author of the thesis: 
+\hspace{5ex} I, the undersigned, \textbf{\@fname \space \MakeUppercase{\@lname}}, identified by the CI/BI with series \@idseries, number \@idnumber, CNP \@cnp, author of the thesis: 
 
 \textbf{\@thtitle} 
 
@@ -258,7 +260,7 @@ of the Technical University of Cluj-Napoca,
 
 \@exsession \space session, 
 
-declare on my own responsibility that this thesis is the result of my own effort and \mbox{intellectual} activity, based on my own research and on information obtained from the sources cited both in the text and in the bibliography.
+declare on my own responsibility that this thesis is the result of my own effort and intellectual activity, based on my own research and on information obtained from the sources cited both in the text and in the bibliography.
 
 \hspace{5ex} I declare that this thesis does not contain plagiarized fragments, and that the bibliographic sources were used in conformity with the Romanian and international legislation regarding ownership rights.
 
@@ -277,7 +279,7 @@ declare on my own responsibility that this thesis is the result of my own effort
 	\smallbreak
 	\underline{\qquad \@declsigndate \qquad}
 	
-	\@fname \space \uppercase{\@lname} \\
+	\@fname \space \MakeUppercase{\@lname} \\
 	\smallbreak
 	\underline{\hspace{3.3cm}}
 \end{multicols}
@@ -297,23 +299,23 @@ of the Diploma Thesis:\\
 \bigbreak
 \bigbreak
 
-Author: \textbf{\@fname \space \uppercase{\@lname}}
+Author: \textbf{\@fname \space \MakeUppercase{\@lname}}
 
-Scientific supervisor: \textbf{\@sutitle \space \@sufname \space \uppercase{\@sulname}}
+Scientific supervisor: \textbf{\@sutitle \space \@sufname \space \MakeUppercase{\@sulname}}
 
 \bigbreak
 
 \begin{enumerate}[leftmargin=*,labelsep=5ex]
 	\item Requirements: \space \@sumrequirements
-	\bigbreak
+	\medbreak
 	\item Solutions: \space \@sumsolutions
-	\bigbreak
+	\medbreak
 	\item Obtained results: \space \@sumresults
-	\bigbreak
+	\medbreak
 	\item Tests and verification: \space \@sumverification
-	\bigbreak
+	\medbreak
 	\item Personal contribution: \space \@sumcontribution
-	\bigbreak
+	\medbreak
 	\item Bibliographical sources: \space \@sumsources
 \end{enumerate} 
 
