@@ -30,6 +30,9 @@
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
 
+% Needed to manage math fonts
+\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+
 % Needed to manage fonts
 \ifxetex
   % \RequirePackage[quiet]{fontspec}
@@ -44,8 +47,6 @@
   % Replace by the encoding you are using
   \RequirePackage[utf8]{inputenc}
 \fi
-% Needed to manage math fonts
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 % \RequirePackage{mathspec}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
@@ -215,11 +216,19 @@
 %-------------------------------------------------------------------------------
 \counterwithin{equation}{section}
 
-\NewEnviron{thesisequation}[1]{
+\NewEnviron{thesisequation}[1][]{
 	\begin{equation}
-		\label{eq:#1}
+        \ifthenelse{\isempty{#1}}
+        {}%
+        {\label{eq:#1}}
 		\BODY
 	\end{equation}
+}
+
+\NewEnviron{thesisequation*}{
+	\begin{equation*}
+		\BODY
+	\end{equation*}
 }
 
 %-------------------------------------------------------------------------------
